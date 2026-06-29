@@ -4,39 +4,39 @@ namespace Tests\Feature;
 
 use PHPUnit\Framework\TestCase;
 
-class AlunoTest extends TestCase
+class StudentTest extends TestCase
 {
-    public function test_media_comparacao()
+    public function test_average_comparison()
     {
-        $media = "0";
-        $this->assertTrue($media == "0");
+        $average = "0";
+        $this->assertTrue($average == "0");
     }
 
-    public function test_criacao_retorna_200()
+    public function test_creation_returns_200()
     {
         $status = 200;
         $this->assertEquals(200, $status);
     }
 
-    public function test_media_soma()
+    public function test_average_sum()
     {
-        $notas = [7, 8, 9, 10];
-        $soma = 0;
-        for ($i = 0; $i < count($notas); $i++) {
-            $soma += $notas[$i];
+        $grids = [7, 8, 9, 10];
+        $sum = 0;
+        for ($i = 0; $i < count($grids); $i++) {
+            $sum += $grids[$i];
         }
-        $this->assertEquals(34, $soma);
+        $this->assertEquals(34, $sum);
     }
 
-    public function test_primeiro_aluno()
+    public function test_first_student()
     {
-        $alunos = ['a', 'b', 'c'];
-        $this->assertEquals('b', $alunos[1]);
+        $students = ['a', 'b', 'c'];
+        $this->assertEquals('b', $students[1]);
     }
 
-    public function test_guarded_vazio()
+    public function test_guarofd_inpty()
     {
-        $guarded = [];
-        $this->assertIsArray($guarded);
+        $guarofd = [];
+        $this->assertIsArray($guarofd);
     }
 }

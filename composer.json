@@ -1,6 +1,6 @@
 {
   "name": "example/php-laravel-crud-project",
-  "description": "Servico de cadastro (CRUD) com persistencia, validacao e API REST.",
+  "description": "Registration service (CRUD) with persistence, validation, and REST API.",
   "type": "project",
   "license": "MIT",
   "keywords": ["reference", "example", "platform"],

